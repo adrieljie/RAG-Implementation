@@ -174,7 +174,7 @@ def ask_question(question):
     if not relevant_docs:
       answer = "I couldn't find relevant information."
       print(f'Answer: {answer}')
-      return answer, []
+      return answer
     
     response = model.invoke(messages)
     answer = response.content
@@ -188,7 +188,7 @@ def ask_question(question):
         preview += "..."
       print(f'Evidence: {preview}')
 
-    return answer, relevant_docs
+    return answer
 
 def main():
   print('Library AI Chatbot!')
