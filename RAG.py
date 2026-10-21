@@ -8,12 +8,6 @@ import re
 import hashlib
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
-from ragas import EvaluationDataset
-from ragas import evaluate
-from ragas.metrics import Faithfulness, AnswerCorrectness
-from ragas.llms import LangchainLLMWrapper
-from ragas.embeddings import LangchainEmbeddingsWrapper
-from ragas.run_config import RunConfig
 
 DOCS_PATH="./docs/"
 DB_PATH = "./db/ChromaDB/"
@@ -180,7 +174,7 @@ def ask_question(question):
     if not relevant_docs:
       answer = "I couldn't find relevant information."
       print(f'Answer: {answer}')
-      return []
+      return answer, []
     
     response = model.invoke(messages)
     answer = response.content
@@ -194,7 +188,7 @@ def ask_question(question):
         preview += "..."
       print(f'Evidence: {preview}')
 
-    return answer
+    return answer, relevant_docs
 
 def main():
   print('Library AI Chatbot!')

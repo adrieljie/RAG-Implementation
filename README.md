@@ -93,7 +93,7 @@ If retrieval returns no passages, the function returns `"I couldn't find relevan
 
 The output prints the title, author, chunk ID, and a 250-character evidence preview for each retrieved passage. The LLM receives the full passage. These references describe the retrieved context, not verified citations attached to individual answer claims.
 
-To inspect full evidence after initialization and ingestion:
+Run this example in RAG_baseline.ipynb after initialization and document ingestion to inspect the full retrieved passages.
 
 ```python
 answer, retrieved_docs = ask_question(
@@ -120,13 +120,13 @@ The choices prioritize a manageable local baseline. They have not all been compa
 Technical references: [Qwen model card](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct), [BGE model card and benchmarks](https://huggingface.co/BAAI/bge-base-en-v1.5), [Chroma integration](https://docs.langchain.com/oss/python/integrations/vectorstores/chroma), and [recursive splitter documentation](https://docs.langchain.com/oss/python/integrations/splitters/recursive_text_splitter).
 
 ## Configuration
-``` DOCS_PATH = "./docs/"
+```python DOCS_PATH = "./docs/"
 DB_PATH = "./db/ChromaDB/"
 COLLECTION_NAME = "books_dedup"
 
 LLM_MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
 EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
-DEVICE = ""
+DEVICE = 0
 
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 0
@@ -158,7 +158,7 @@ After changing configuration, rerun the affected cells. Changing the embedding m
 
 ## Setup and Run Commands
 
-The inspected environment uses Python 3.10.0 on an Apple Silicon Mac. LLM execution was checked on MPS (`mps:0`). This setup does not require an NVIDIA GPU.
+The inspected environment uses Python 3.10.0 on an Apple Silicon Mac. LLM execution was checked on MPS (`mps:0`).
 
 Allow several GB of disk space and free memory for model downloads and execution. An exact minimum RAM requirement has not been measured. CPU execution is configurable but may be slower.
 
@@ -215,7 +215,7 @@ Open `RAG_baseline.ipynb` in VS Code using the Python and Jupyter extensions, th
 
 Alternatively, launch JupyterLab:
 
-```
+```bash
 python -m pip install jupyterlab
 python -m jupyter lab RAG_baseline.ipynb
 ```
