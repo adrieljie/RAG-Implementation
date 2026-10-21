@@ -228,3 +228,33 @@ The notebook must initialize its own models and database connection, variables f
 Generation evaluation uses the local Qwen model as the evaluator and BGE embeddings, with one worker and no automatic retries. It can take longer than answering an individual question.
 
 Saved outputs are available in the notebooks so reviewers can inspect the results without rerunning evaluation.
+
+## AI Assistance and References
+
+### What I Built Independently
+
+I built and integrated the baseline pipeline, including document loading, text chunking, embedding generation, retrieval, and answer generation. I also ran the experiments and manually reviewed the system’s outputs.
+
+### AI Assistance
+
+I used AI assistance to help implement duplicate checks and evaluation metrics, prepare documentation, and review and debug parts of the baseline code. AI also helped explain library usage, configuration options, and dependency errors.
+
+### What I Checked Myself
+
+I inspected the loaded documents, metadata, processed text, and chunks. I compared retrieved passages and generated answers with the source books to distinguish retrieval failures from generation failures.
+
+I tested similarity thresholds of 0.3, 0.5, and 0.7 and compared their retrieval results. I also tested follow-up question rewriting and identified cases where it changed the question’s meaning or introduced unsupported information.
+
+I reviewed the suggested evaluation metrics and requested changes, including using only faithfulness and answer correctness for generation evaluation. I checked the reference chunk IDs and retrieved results when retrieval evaluation initially returned all-zero scores, and compared automated generation scores with my manual assessment of individual answers.
+
+I asked for explanations of duplicate checks and evaluation metrics, and tested dependency and debugging fixes. When errors remained, I reported them for further investigation.
+
+I reviewed the AI-drafted documentation for consistency with my implementation and results. I also started testing the setup from a GitHub clone with a new environment, a fresh database, and a separate model cache.
+
+### References
+
+- [Qwen2.5-1.5B-Instruct model card](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
+- [BGE-base-en-v1.5 model card and benchmarks](https://huggingface.co/BAAI/bge-base-en-v1.5)
+- [LangChain Chroma integration](https://docs.langchain.com/oss/python/integrations/vectorstores/chroma)
+- [Recursive character splitting](https://docs.langchain.com/oss/python/integrations/splitters/recursive_text_splitter)
+- [Ragas documentation](https://docs.ragas.io/)
