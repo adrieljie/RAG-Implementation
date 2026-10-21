@@ -31,16 +31,17 @@ This project builds a RAG-based book assistant that allows readers to ask questi
 The local environment, downloaded models, and generated vector database are not required in the repository. The database is created through the Load Data menu.
 
 ## Dataset & Preprocessing
-The dataset contains four English-language books from Project Gutenberg, stored as UTF-8 `.txt` files.
+The dataset contains five English-language books from Project Gutenberg, stored as UTF-8 `.txt` files.
 
 | Book | Author | Filename | File size |
 |---|---|---|---:|
-| [Alice's Adventures in Wonderland](https://www.gutenberg.org/ebooks/11) | Lewis Carroll | `alice_in_wonderland.txt` | 174,311 bytes |
-| [Frankenstein](https://www.gutenberg.org/ebooks/84) | Mary Wollstonecraft Shelley | `frankenstein.txt` | 448,885 bytes |
-| [Pride and Prejudice](https://www.gutenberg.org/ebooks/1342) | Jane Austen | `pride_and_prejudice.txt` | 772,386 bytes |
-| [The Adventures of Sherlock Holmes](https://www.gutenberg.org/ebooks/1661) | Arthur Conan Doyle | `sherlock_holmes.txt` | 607,606 bytes |
+| [Alice's Adventures in Wonderland](https://www.gutenberg.org/ebooks/11) | Lewis Carroll | `alice_in_wonderland.txt` | 174 KB |
+| [Frankenstein](https://www.gutenberg.org/ebooks/84) | Mary Wollstonecraft Shelley | `frankenstein.txt` | 448 KB|
+| [Pride and Prejudice](https://www.gutenberg.org/ebooks/1342) | Jane Austen | `pride_and_prejudice.txt` | 772 KB |
+| [The Adventures of Sherlock Holmes](https://www.gutenberg.org/ebooks/1661) | Arthur Conan Doyle | `sherlock_holmes.txt` | 607 KB |
+| [The Great Gatsby](https://www.gutenberg.org/ebooks/64317) | Francis Scott Fitzgerald | `the_great_gatsby.txt` | 307 KB |
 
-Total dataset size: 4 files, 2,003,188 bytes, approximately 2 MB.
+Total dataset size: 5 files, approximately 2.3 MB.
 
 The books contain different characters, events, and passages, making them suitable for testing retrieval across a collection. Plain text was selected to avoid PDF layout and OCR problems.
 
